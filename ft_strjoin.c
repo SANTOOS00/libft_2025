@@ -1,51 +1,51 @@
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: moerrais <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/17 20:34:52 by moerrais          #+#    #+#             */
+/*   Updated: 2025/10/17 22:32:45 by moerrais         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-size_t ft_strlen(char const *str)
+#include "libft.h"
+
+void	ft_ok(char *str, char const *s1, char const *s2)
 {
-    size_t i = 0;
-    while (str[i] != '\0')
-    {
-        i++;
-    }
-    return (i);
-}
-char *ft_strjoin(char const *s1, char const *s2)
-{
-    if (!s1 || !s2)
-    {
-        return (NULL);
-    }
-    size_t sizes1 = ft_strlen(s1);
-    size_t sizes2 = ft_strlen(s2);
-    size_t i1 = 0;
-    size_t i2 = 0;
-    size_t len = 0;
+	size_t	i1;
+	size_t	i2;
+	size_t	i;
 
-    char *str = malloc(sizeof(char) * (sizes1 + sizes2 + 1));
-    if (!str)
-    {
-        return (NULL);
-    }
-
-    while (i1 < sizes1)
-    {
-        str[len++] = s1[i1++];
-    }
-    while (i2 < sizes2)
-    {
-        str[len++] = s2[i2++];
-    }
-    str[len] = '\0';
-    return (str);
+	i1 = 0;
+	i2 = 0;
+	i = 0;
+	while (s1[i1] || s2[i2])
+	{
+		if (s1[i1])
+		{
+			str[i++] = s1[i1++];
+		}
+		else
+			str[i++] = s2[i2++];
+	}
+	str[i] = '\0';
 }
 
-#include <stdio.h>
-int main()
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-    char s1[] = "simo ";
-    char s2[] = "santoos";
+	char	*str;
 
-    char *str = ft_strjoin(s1,s2);
-    printf ("%s",str);
-    free(str);
+	if (!s1 || !s2)
+	{
+		return (NULL);
+	}
+	str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!str)
+	{
+		return (NULL);
+	}
+	ft_ok(str, s1, s2);
+	return (str);
 }

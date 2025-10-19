@@ -1,86 +1,82 @@
-#include <stdlib.h>
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: moerrais <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/17 22:34:27 by moerrais          #+#    #+#             */
+/*   Updated: 2025/10/18 00:38:31 by moerrais         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+#include "libft.h"
 
-int ft_is_valed(char const c,char const *str)
+size_t	ft_isvald(char const *set, char c)
 {
-    int i;
-    i = 0;
-    while (str[i] != '\0')
-    {
-        if (str[i] == c)
-        {
-            return 1;
-        }
-        i++;
-    }
-    return 0;
+	size_t	i;
+
+	i = 0;
+	while (set[i])
+	{
+		if (set[i] == c)
+		{
+			return (1);
+		}
+		i++;
+	}
+	return (0);
 }
 
-size_t ft_strlen(char const *s1)
+char	*ft_mystrdup(const char *s, size_t n)
 {
-    size_t i;
+	size_t	i;
+	char	*str;
 
-    i = 0;
-    while (s1[i] != '\0')
-    {
-        i++;
-    }
-    return i;
-}
-size_t ft_strat(char const *s1, char const *set)
-{
-    size_t i = ft_strlen(s1) - 1;
-    size_t len_end = 0;
-    while(i >= 0)
-    {
-        if ((ft_is_valed(s1[i],set)) == 0)
-        {
-            return i + 1;
-        }
-        i--;
-    }
-    return (i);
+	i = 0;
+	str = malloc(sizeof(char) * (ft_strlen(s) + 1));
+	if (!str)
+	{
+		return (NULL);
+	}
+	while (s[i] && n > i)
+	{
+		str[i] = s[i];
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 }
 
-size_t ft_end(char const *s1, char const *set)
+char	*ft_copy(char const *s1, size_t start, size_t end)
 {
-    size_t i = 0;
-    size_t  len_end = 0;
-    while(s1[i] != '\0')
-    {
-        if ((ft_is_valed(s1[i],set)) == 0)
-        {
-            return len_end;
-        }
-        i++;
-        len_end++;
-    }
-    return (len_end);
-}
-char *ft_strtrim(char const *s1, char const *set)
-{
-    size_t i = 0;
-    size_t end = ft_end(s1,set);
-    size_t start = ft_strat(s1,set);
-    char *str = malloc(sizeof(char) *(start - end));
-    if (!str)
-    {
-        return (NULL);
-    }
-    while (end < start)
-    {
-        str[i++] = s1[end++];
-    }
-    str[i] = '\0';
-    return (str);
+	char	*str;
+
+	if (start >= end)
+	{
+		str = malloc(1);
+		if (!str)
+			return (NULL);
+		str[0] = '\0';
+		return (str);
+	}
+	str = ft_mystrdup(s1, end - start + 1);
+	return (str);
 }
 
-int main()
+char	*ft_strtrim(const char *s1, const char *set)
 {
-    char s1[] = "";
-    char set[] = "";
-    char *str = ft_strtrim(s1,set);
-    printf("%s",str);
-    free(str);
-    return (0); 
+	size_t start;
+	size_t end;
+	char *str;
+
+	start = 0;
+	end = ft_strlen(s1) - 1;
+	if (!s1 || !set)
+		return (NULL);
+	while (ft_isvald(set, s1[start]))
+		start++;
+	while (ft_isvald(set, s1[end]))
+		end--;
+	str = ft_copy(&s1[start], start, end);
+	return (str);
 }

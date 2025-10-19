@@ -1,67 +1,114 @@
-#include <stdlib.h>
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: moerrais <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/18 16:43:38 by moerrais          #+#    #+#             */
+/*   Updated: 2025/10/18 21:31:57 by moerrais         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int ft_valid(char s, char c)
+#include "libft.h"
+
+size_t	ft_contword(char const *s, char c)
 {
-    return (s == c);
+	size_t	i;
+	size_t	word;
+
+	i = 0;
+	word = 0;
+	while (s[i])
+	{
+		while (s[i] == c && s[i])
+			i++;
+		if (s[i] != c && s[i])
+		{
+			word++;
+			while (s[i] != c && s[i])
+				i++;
+		}
+	}
+	return (word);
 }
-int ft_strlen_word(char const  *str, char c)
-{
-    int i;
-    int word;
 
-    i = 0;
-    word = 0;
-    while (str[i] != '\0' && ft_valid(str[i] ,c))
-    {
-        i++;
-    }
-    while (str[i] != '\0')
-    {
-        while (str[i] != '\0' && !ft_valid(str[i],c))
-        {
-            i++;
-        }
-        if (str[i] != '\0' && ft_valid(str[i] ,c))
-        {
-            i++;
-            word++;
-        }
-    }
-    printf ("%d",word);
-    return (word);
+char	*ft_mystrdup(char const *s, char c)
+{
+	char	*str;
+	size_t	len;
+	size_t	i;
+
+	len = 0;
+	i = 0;
+	while (s[len] && s[len] != c)
+	{
+		len++;
+	}
+	str = malloc(sizeof(char) * (len + 1));
+	if (!str)
+	{
+		return (NULL);
+	}
+	while (len + 1 > i)
+	{
+		str[i] = s[i];
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 }
 
+void	ft_fricha3b(char **str, size_t i)
+{
+	size_t	len;
 
-char **ft_split(char const *s, char c)
-{
-    int conutword = ft_strlen_word(s,c);
-    char **str;
-    int j = 0;
-    str = malloc(sizeof(char *) * (conutword + 1));
-    if (!str)
-    {
-        return (NULL);
-    }
-    while (j < conutword)
-    {
-        str[j] = ft_strdup(s,c);
-    }
-    str[j] = NULL;
-    return (str);
+	len = 0;
+	while (i > len)
+	{
+		free(str[i++]);
+	}
+	free(str);
 }
-#include <stdio.h>
-int main()
+
+char	**ft_mystrncat(char **str, char const *s, char c, size_t word)
 {
-    char str[] = "   simo mohamed santoos";
-    char c = ' ';
-    char **st = ft_split(str,c);
-    int i = 0 ;
-    while (st[i] != NULL)
-    {
-        printf ("%s",st[i]);
-        i++;
-    }
-    free(st);
-    return (0);
+	size_t	i;
+	size_t	len;
+
+	len = 0;
+	i = 0;
+	while (word > i)
+	{
+		while (s[len] && s[len] == c)
+		{
+			len++;
+		}
+		if ((s[len] && s[len] != c))
+		{
+			str[i] = ft_mystrdup(&s[len], c);
+			if (!str)
+				return (ft_fricha3b(str, i), NULL);
+			i++;
+			while ((s[len] && s[len] != c))
+				len++;
+		}
+	}
+	return (str);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	size_t	word;
+	char	**str;
+	size_t	i;
+	size_t	len;
+
+	i = 0;
+	len = 0;
+	word = ft_contword(s, c);
+	str = malloc(sizeof(char **) * (word + 1));
+	if (!str)
+		return (NULL);
+	return (ft_mystrncat(str, s, c, word));
 }

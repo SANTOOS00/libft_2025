@@ -1,38 +1,37 @@
-#include <stdlib.h>
-void *ft_mamchr(void *s, int c, size_t size)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: moerrais <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/16 15:54:23 by moerrais          #+#    #+#             */
+/*   Updated: 2025/10/16 15:54:24 by moerrais         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-    unsigned char *str;
-    size_t i;
+	size_t len;
+	char *str;
+	unsigned char ch;
 
-    str = (unsigned char *)s;
-    i = 0;
-    while (i < size)
-    {
-        if (str[i] == (unsigned int)c)
-        {
-            return (void *)str + i;
-        }
-        i++;
-    }
-    return (NULL);
+	str = (char *)s;
+	ch = c;
+	len = 0;
+	if (!str)
+	{
+		return (0);
+	}
+	while (str[len] != '\0' && n > len)
+	{
+		if (str[len] == ch)
+		{
+			return (&str[len]);
+		}
+		len++;
+	}
+	return (NULL);
 }
-
-// #include <stdio.h>
-
-// int main()
-// {
-//     unsigned char  str[] = {78,23,22,11,43,100,76};
-
-//     unsigned char *st = ft_mamchr(str,11,7);
-
-
-//     size_t i;
-
-//     i = st - str;
-//     while (i < 7)
-//     {
-//         printf ("%d, ",str[i]);
-//         i++; 
-//     }
-//     return (0);
-// }

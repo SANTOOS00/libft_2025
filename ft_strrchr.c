@@ -1,26 +1,43 @@
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: moerrais <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/16 14:27:35 by moerrais          #+#    #+#             */
+/*   Updated: 2025/10/16 14:27:37 by moerrais         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+#include "libft.h"
 
-char *ft_strrchr(char const *str, int c)
+char	*ft_strrchr(const char *s, int c)
 {
-    size_t len;
-    char *s;
-    size_t index;
-    int i = 0;
+	unsigned char ch;
+	int lenstr;
 
-    len = 0;
-    s = (char *)str;
-    while (s[len] != '\0')
-    {
-        if (s[len] == c)
-        {
-            index = len;
-            i = 1;
-        }
-        len++;
-        if (s[len] == '\0' && i == 1)
-        {
-            return (s + index);
-        }
-    }
-    return NULL;
+	ch = c;
+	lenstr = ft_strlen(s);
+	if (s[lenstr] == ch)
+	{
+		return ((char *)&s[lenstr]);
+	}
+	while (lenstr >= 0)
+	{
+		if (s[lenstr] == ch)
+		{
+			return ((char *)&s[lenstr]);
+		}
+		lenstr--;
+	}
+	return (NULL);
+}
+
+int main()
+{
+	char str[] = "simziin izwniijo zdiwen[f owzef]";
+	int c = 122;
+	char *res = ft_strrchr(str,c);
+	printf("%s",res);
+	return (0);
 }

@@ -1,30 +1,60 @@
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: moerrais <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/17 17:37:08 by moerrais          #+#    #+#             */
+/*   Updated: 2025/10/17 18:09:05 by moerrais         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+#include "libft.h"
 
-char *ft_substr(char const *s,unsigned int start,size_t len)
+char	*ft_ok(const char *s, unsigned int st, size_t len, size_t lens)
 {
-    size_t lenstart = start;
-    size_t i = 0;
-    char *str = malloc(len + 1);
-    if (!str)
-    {
-        return (NULL);
-    }
-    while(i < len && s[lenstart] != '\0')
-    {
-        str[i++] = s[lenstart];
-        lenstart++;
-    }
-    str[i] = '\0';
-    return (str);
+	char	*str;
+	size_t	i;
+
+	i = 0;
+	if (len > lens - st)
+	{
+		len = lens - st;
+	}
+	str = malloc(sizeof(char) * (len + 1));
+	if (!str)
+	{
+		return (NULL);
+	}
+	while (s[st + i] && i < len)
+	{
+		str[i] = s[st + i];
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 }
 
-#include <stdio.h>
-int main()
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-    char str[] = "simo santoos";
-    unsigned int start = 3;
-    char *st = ft_substr(str,start, 12);
-    printf ("%s",st);
-    free(st);
-    return (0);
+	char *str;
+	size_t lens;
+	size_t i;
+
+	lens = ft_strlen(s);
+	if (!s)
+	{
+		return (NULL);
+	}
+	if (start >= lens)
+	{
+		str = malloc(1);
+		if (!str)
+		{
+			return (NULL);
+		}
+		str[0] = '\0';
+		return (str);
+	}
+	return (ft_ok(s, start, len, lens));
 }
