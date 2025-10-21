@@ -6,31 +6,31 @@
 /*   By: moerrais <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 13:34:34 by moerrais          #+#    #+#             */
-/*   Updated: 2025/10/16 13:34:38 by moerrais         ###   ########.fr       */
+/*   Updated: 2025/10/20 04:01:34 by moerrais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {
-	char *str;
-	unsigned char ch;
-	int i;
+	int				i;
 
 	i = 0;
-	ch = c;
-	str = (char *)s;
-	while (str[i] != '\0')
+	if (c > 257)
 	{
-		if (str[i] == ch)
+		return (NULL);
+	}
+	while (s[i] != '\0')
+	{
+		if (s[i] == c)
 		{
-			return (&str[i]);
+			return ((char *)&s[i]);
 		}
 		i++;
 	}
-	if (str[i] == c)
+	if (s[i] == c)
 	{
-		return (&str[i]);
+		return ((char *)&s[i]);
 	}
 	return (NULL);
 }

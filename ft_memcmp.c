@@ -6,7 +6,7 @@
 /*   By: moerrais <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 16:37:48 by moerrais          #+#    #+#             */
-/*   Updated: 2025/10/16 16:37:50 by moerrais         ###   ########.fr       */
+/*   Updated: 2025/10/19 23:17:12 by moerrais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	unsigned char *s11;
-	unsigned char *s22;
-	size_t len;
+	unsigned char	*s11;
+	unsigned char	*s22;
+	size_t			len;
 
 	s11 = (unsigned char *)s1;
 	s22 = (unsigned char *)s2;
@@ -25,14 +25,13 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	{
 		return (0);
 	}
-	while (*s11 != '\0' && *s22 != '\0')
+	while (n > len)
 	{
-		if (*s11 != *s22)
+		if (s11[len] != s22[len])
 		{
-			return ((unsigned char)*s11 - (unsigned char)*s22);
+			return (s11[len] - s22[len]);
 		}
-		s11++;
-		s22++;
+		len++;
 	}
 	return (0);
 }

@@ -6,12 +6,12 @@
 /*   By: moerrais <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 19:44:58 by moerrais          #+#    #+#             */
-/*   Updated: 2025/10/14 19:44:59 by moerrais         ###   ########.fr       */
+/*   Updated: 2025/10/19 23:28:28 by moerrais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t len)
 {
-	ft_memset(s, '0', n);
+	ft_memset(s, 0, len);
 }

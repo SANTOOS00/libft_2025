@@ -6,13 +6,13 @@
 /*   By: moerrais <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 21:33:20 by moerrais          #+#    #+#             */
-/*   Updated: 2025/10/18 23:00:38 by moerrais         ###   ########.fr       */
+/*   Updated: 2025/10/19 23:14:24 by moerrais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_intlen(int n)
+static int	ft_intlen(int n)
 {
 	int	len;
 
@@ -48,8 +48,7 @@ char	*ft_itoa(int n)
 	}
 	while (i > 0)
 	{
-		len--;
-		str[len] = (i % 10) + '0';
+		str[--len] = (i % 10) + '0';
 		i = i / 10;
 	}
 	return (str);

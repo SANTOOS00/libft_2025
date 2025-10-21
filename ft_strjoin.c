@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void	ft_ok(char *str, char const *s1, char const *s2)
+static void	ft_ok(char *str, char const *s1, char const *s2)
 {
 	size_t	i1;
 	size_t	i2;

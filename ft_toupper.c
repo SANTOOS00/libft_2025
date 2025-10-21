@@ -14,14 +14,7 @@
 
 int	ft_toupper(int c)
 {
-	if (ft_isprint(c))
-	{
-		if (ft_isalpha(c))
-		{
-			if (c >= 'a' && c <= 'z')
-				c = c - 32;
-		}
-		return (c);
-	}
-	return (0);
+	if (c >= 'a' && c <= 'z')
+		c = c - 32;
+	return (c);
 }

@@ -6,12 +6,12 @@
 /*   By: moerrais <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 17:37:08 by moerrais          #+#    #+#             */
-/*   Updated: 2025/10/17 18:09:05 by moerrais         ###   ########.fr       */
+/*   Updated: 2025/10/20 04:05:37 by moerrais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-char	*ft_ok(const char *s, unsigned int st, size_t len, size_t lens)
+static char	*ft_ok(const char *s, unsigned int st, size_t len, size_t lens)
 {
 	char	*str;
 	size_t	i;
@@ -37,9 +37,8 @@ char	*ft_ok(const char *s, unsigned int st, size_t len, size_t lens)
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char *str;
-	size_t lens;
-	size_t i;
+	char	*str;
+	size_t	lens;
 
 	lens = ft_strlen(s);
 	if (!s)

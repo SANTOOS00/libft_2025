@@ -1,46 +1,33 @@
-// char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
-// {
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: moerrais <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/19 16:46:47 by moerrais          #+#    #+#             */
+/*   Updated: 2025/10/19 18:40:22 by moerrais         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+#include "libft.h"
 
-// }
-#include <stdio.h>
-
-// دالة بسيطة كتضاعف الرقم
-char *double_num(char *str)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-    return *str =  "simo";
-}
+	unsigned int	lens;
+	char			*str;
 
-// دالة كتزيد 10
-int add_ten(int x)
-{
-    return x + 10;
-}
-
-void apply_to_numbers(int *arr, int size, int (*f)(int))
-{
-    for (int i = 0; i < size; i++)
-        arr[i] = f(arr[i]);
-}
-
-int main()
-{
-    char *str[] = {"simo" , "santoos","mohamed"};
-    size_t size = 3;
-
-
-    apply_to_numbers(str, size, double_num);
-
-    printf("After doubling: ");
-    for (int i = 0; i < size; i++)
-        printf("%d ", str[i]);
-    printf("\n");
-
-    apply_to_numbers(str, size, double_num);
-
-    printf("After adding 10: ");
-    for (int i = 0; i < size; i++)
-        printf("%d ", str[i]);
-    printf("\n");
-
-    return 0;
+	if (!s || !f)
+		return (NULL);
+	lens = ft_strlen(s);
+	str = malloc(sizeof(char) * (lens + 1));
+	if (!str)
+		return (NULL);
+	lens = 0;
+	while (s[lens])
+	{
+		str[lens] = f(lens, s[lens]);
+		lens++;
+	}
+	str[lens] = '\0';
+	return (str);
 }

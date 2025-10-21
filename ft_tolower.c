@@ -11,17 +11,14 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <ctype.h>
+
 
 int	ft_tolower(int c)
 {
-	if (ft_isprint(c))
+	if (c >= 'A' && c <= 'Z')
 	{
-		if (ft_isalpha(c))
-		{
-			if (c >= 'A' && c <= 'Z')
-				c = c + 32;
-		}
-		return (c);
+		c = c + 32;
 	}
-	return (0);
+	return (c);
 }

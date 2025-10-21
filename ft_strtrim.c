@@ -6,12 +6,12 @@
 /*   By: moerrais <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 22:34:27 by moerrais          #+#    #+#             */
-/*   Updated: 2025/10/18 00:38:31 by moerrais         ###   ########.fr       */
+/*   Updated: 2025/10/19 23:40:31 by moerrais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-size_t	ft_isvald(char const *set, char c)
+static size_t	ft_isvald(char const *set, char c)
 {
 	size_t	i;
 
@@ -27,7 +27,7 @@ size_t	ft_isvald(char const *set, char c)
 	return (0);
 }
 
-char	*ft_mystrdup(const char *s, size_t n)
+static char	*ft_mystrdup(const char *s, size_t n)
 {
 	size_t	i;
 	char	*str;
@@ -47,7 +47,7 @@ char	*ft_mystrdup(const char *s, size_t n)
 	return (str);
 }
 
-char	*ft_copy(char const *s1, size_t start, size_t end)
+static char	*ft_copy(char const *s1, size_t start, size_t end)
 {
 	char	*str;
 
@@ -65,9 +65,9 @@ char	*ft_copy(char const *s1, size_t start, size_t end)
 
 char	*ft_strtrim(const char *s1, const char *set)
 {
-	size_t start;
-	size_t end;
-	char *str;
+	size_t	start;
+	size_t	end;
+	char	*str;
 
 	start = 0;
 	end = ft_strlen(s1) - 1;

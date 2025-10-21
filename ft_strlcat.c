@@ -6,17 +6,17 @@
 /*   By: moerrais <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 17:23:33 by moerrais          #+#    #+#             */
-/*   Updated: 2025/10/15 17:23:34 by moerrais         ###   ########.fr       */
+/*   Updated: 2025/10/20 04:03:53 by moerrais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	size_t dstlen;
-	size_t srclen;
-	size_t i;
-	size_t y;
+	size_t	dstlen;
+	size_t	srclen;
+	size_t	i;
+	size_t	y;
 
 	dstlen = ft_strlen(dst);
 	srclen = ft_strlen(src);

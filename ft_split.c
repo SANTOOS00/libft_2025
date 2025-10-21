@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-size_t	ft_contword(char const *s, char c)
+static size_t	ft_contword(char const *s, char c)
 {
 	size_t	i;
 	size_t	word;
@@ -33,7 +33,7 @@ size_t	ft_contword(char const *s, char c)
 	return (word);
 }
 
-char	*ft_mystrdup(char const *s, char c)
+static char	*ft_mystrdup(char const *s, char c)
 {
 	char	*str;
 	size_t	len;
@@ -59,7 +59,7 @@ char	*ft_mystrdup(char const *s, char c)
 	return (str);
 }
 
-void	ft_fricha3b(char **str, size_t i)
+static void	ft_fricha3b(char **str, size_t i)
 {
 	size_t	len;
 
@@ -71,7 +71,7 @@ void	ft_fricha3b(char **str, size_t i)
 	free(str);
 }
 
-char	**ft_mystrncat(char **str, char const *s, char c, size_t word)
+static char	**ft_mystrncat(char **str, char const *s, char c, size_t word)
 {
 	size_t	i;
 	size_t	len;
