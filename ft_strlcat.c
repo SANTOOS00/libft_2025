@@ -20,10 +20,6 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 
 	dstlen = ft_strlen(dst);
 	srclen = ft_strlen(src);
-	if (!size)
-	{
-		return (srclen);
-	}
 	i = dstlen;
 	y = 0;
 	if (size <= dstlen)

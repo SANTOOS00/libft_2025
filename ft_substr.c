@@ -40,11 +40,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*str;
 	size_t	lens;
 
-	lens = ft_strlen(s);
 	if (!s)
 	{
 		return (NULL);
 	}
+	lens = ft_strlen(s);
 	if (start >= lens)
 	{
 		str = malloc(1);

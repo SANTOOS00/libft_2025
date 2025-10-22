@@ -50,7 +50,7 @@ static char	*ft_mystrdup(char const *s, char c)
 	{
 		return (NULL);
 	}
-	while (len + 1 > i)
+	while (len > i)
 	{
 		str[i] = s[i];
 		i++;
@@ -87,13 +87,14 @@ static char	**ft_mystrncat(char **str, char const *s, char c, size_t word)
 		if ((s[len] && s[len] != c))
 		{
 			str[i] = ft_mystrdup(&s[len], c);
-			if (!str)
+			if (!str[i])
 				return (ft_fricha3b(str, i), NULL);
 			i++;
 			while ((s[len] && s[len] != c))
 				len++;
 		}
 	}
+	str[i] = NULL;
 	return (str);
 }
 
@@ -106,6 +107,10 @@ char	**ft_split(char const *s, char c)
 
 	i = 0;
 	len = 0;
+	if (!s)
+	{
+		return (NULL);
+	}
 	word = ft_contword(s, c);
 	str = malloc(sizeof(char **) * (word + 1));
 	if (!str)

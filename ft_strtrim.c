@@ -33,33 +33,17 @@ static char	*ft_mystrdup(const char *s, size_t n)
 	char	*str;
 
 	i = 0;
-	str = malloc(sizeof(char) * (ft_strlen(s) + 1));
+	str = malloc(sizeof(char) * (n + 2));
 	if (!str)
 	{
 		return (NULL);
 	}
-	while (s[i] && n > i)
+	while (s[i] && n + 1> i)
 	{
 		str[i] = s[i];
 		i++;
 	}
 	str[i] = '\0';
-	return (str);
-}
-
-static char	*ft_copy(char const *s1, size_t start, size_t end)
-{
-	char	*str;
-
-	if (start >= end)
-	{
-		str = malloc(1);
-		if (!str)
-			return (NULL);
-		str[0] = '\0';
-		return (str);
-	}
-	str = ft_mystrdup(s1, end - start + 1);
 	return (str);
 }
 
@@ -70,13 +54,14 @@ char	*ft_strtrim(const char *s1, const char *set)
 	char	*str;
 
 	start = 0;
-	end = ft_strlen(s1) - 1;
 	if (!s1 || !set)
 		return (NULL);
-	while (ft_isvald(set, s1[start]))
+	end = ft_strlen(s1) - 1;
+	while (s1[start] && ft_isvald(set, s1[start]))
 		start++;
-	while (ft_isvald(set, s1[end]))
+
+	while (end >= start && ft_isvald(set, s1[end]))
 		end--;
-	str = ft_copy(&s1[start], start, end);
+	str = ft_mystrdup(&s1[start],end -  start);
 	return (str);
 }

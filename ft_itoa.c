@@ -28,7 +28,19 @@ static int	ft_intlen(int n)
 	}
 	return (len);
 }
+char *ft_zero(void)
+{
+	char *str;
 
+	str = malloc (2);
+	if (!str)
+	{
+		return (NULL);
+	}
+	str[0] = '0';
+	str[1] = '\0';
+	return (str);
+}
 char	*ft_itoa(int n)
 {
 	int		len;
@@ -37,6 +49,10 @@ char	*ft_itoa(int n)
 
 	i = n;
 	len = ft_intlen(n);
+	if (!n)
+	{
+		return (ft_zero());
+	}
 	str = malloc(len + 1);
 	if (!str)
 		return (NULL);

@@ -39,7 +39,7 @@ long	ft_my(const char *nptr, int sign)
 		res = res * 10 + (nptr[i] - '0');
 		i++;
 	}
-	return (res);
+	return (res * sign);
 }
 
 int	ft_atoi(const char *nptr)
@@ -51,10 +51,6 @@ int	ft_atoi(const char *nptr)
 	sing = 1;
 	i = 0;
 	rest = 0;
-	if (!nptr)
-	{
-		return (0);
-	}
 	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32)
 	{
 		i++;
@@ -63,10 +59,10 @@ int	ft_atoi(const char *nptr)
 	{
 		if (nptr[i] == '-')
 		{
-			sing *= -1;
+			sing = sing * -1;
 		}
 		i++;
 	}
-	rest = ft_my(&nptr[i], sing);
-	return (sing * rest);
+	rest = ft_my(&nptr[i],sing);
+	return ((int)rest);
 }
