@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+void	*ft_memmove(void *dest,  const void *src, size_t n)
 {
 	unsigned char *dest1;
 	unsigned char	*src1;
@@ -31,5 +31,6 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	{
 		ft_memcpy(dest1, src1, n);
 	}
-	return (dest);
+	return (dest1);
 }
+

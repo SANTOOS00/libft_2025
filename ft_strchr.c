@@ -9,11 +9,12 @@
 /*   Updated: 2025/10/20 04:01:34 by moerrais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {
-	int				i;
+	int	i;
 
 	i = 0;
 	if (c > 257)
