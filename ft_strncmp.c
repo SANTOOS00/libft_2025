@@ -20,7 +20,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	i = 0;
 	sr1 = (const unsigned char *)s1;
 	sr2 = (const unsigned char *)s2;
-	while ((sr1[i] || sr2[i]) && n > i)
+	while (n > i && (sr1[i] || sr2[i]))
 	{
 		if (sr1[i] != sr2[i])
 		{
