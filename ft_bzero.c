@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moerrais <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: moerrais <moerrais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/14 19:44:58 by moerrais          #+#    #+#             */
-/*   Updated: 2025/10/19 23:28:28 by moerrais         ###   ########.fr       */
+/*   Created: 2025/10/24 23:39:42 by moerrais          #+#    #+#             */
+/*   Updated: 2025/10/24 23:39:45 by moerrais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 void	ft_bzero(void *s, size_t len)

@@ -6,7 +6,7 @@
 /*   By: moerrais <moerrais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 21:33:20 by moerrais          #+#    #+#             */
-/*   Updated: 2025/10/24 19:29:49 by moerrais         ###   ########.fr       */
+/*   Updated: 2025/10/24 23:35:05 by moerrais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,12 @@ static int	ft_intlen(int n)
 	}
 	return (len);
 }
-char *ft_zero(void)
-{
-	char *str;
 
-	str = malloc (2);
+static char	*ft_zero(void)
+{
+	char	*str;
+
+	str = malloc(2);
 	if (!str)
 	{
 		return (NULL);
@@ -41,10 +42,11 @@ char *ft_zero(void)
 	str[1] = '\0';
 	return (str);
 }
+
 char	*ft_itoa(int n)
 {
-	int		len;
 	char	*str;
+	int		len;
 	long	i;
 
 	i = n;
