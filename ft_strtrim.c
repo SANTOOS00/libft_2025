@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moerrais <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: moerrais <moerrais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/17 22:34:27 by moerrais          #+#    #+#             */
-/*   Updated: 2025/10/19 23:40:31 by moerrais         ###   ########.fr       */
+/*   Created: 2025/10/24 23:41:41 by moerrais          #+#    #+#             */
+/*   Updated: 2025/10/24 23:41:43 by moerrais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 static size_t	ft_isvald(char const *set, char c)
@@ -38,7 +39,7 @@ static char	*ft_mystrdup(const char *s, size_t n)
 	{
 		return (NULL);
 	}
-	while (s[i] && n + 1> i)
+	while (s[i] && n + 1 > i)
 	{
 		str[i] = s[i];
 		i++;
@@ -59,9 +60,8 @@ char	*ft_strtrim(const char *s1, const char *set)
 	end = ft_strlen(s1) - 1;
 	while (s1[start] && ft_isvald(set, s1[start]))
 		start++;
-
 	while (end >= start && ft_isvald(set, s1[end]))
 		end--;
-	str = ft_mystrdup(&s1[start],end -  start);
+	str = ft_mystrdup(&s1[start], end - start);
 	return (str);
 }

@@ -6,7 +6,7 @@
 /*   By: moerrais <moerrais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 21:33:20 by moerrais          #+#    #+#             */
-/*   Updated: 2025/10/24 23:35:05 by moerrais         ###   ########.fr       */
+/*   Updated: 2025/10/30 09:36:43 by moerrais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,9 @@ static char	*ft_zero(void)
 {
 	char	*str;
 
-	str = malloc(2);
+	str = malloc(sizeof(char ) * 2);
 	if (!str)
-	{
 		return (NULL);
-	}
 	str[0] = '0';
 	str[1] = '\0';
 	return (str);

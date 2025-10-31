@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moerrais <moerrais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/16 14:47:00 by moerrais          #+#    #+#             */
-/*   Updated: 2025/10/24 20:10:21 by moerrais         ###   ########.fr       */
+/*   Created: 2025/10/25 16:18:54 by moerrais          #+#    #+#             */
+/*   Updated: 2025/10/25 16:30:56 by moerrais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strcmp(const char *s1, const char *s2)
+int	ft_lstsize(t_list *lst)
 {
-	int i = -1;
-	while (s1[++i] && s2[i])
-		if (s1[i] != s2[i])
-			break ;
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+	int	i;
+
+	i = 0;
+	if (!lst)
+		return (0);
+	while (lst)
+	{
+		i++;
+		lst = lst->next;
+	}
+	return (i);
 }

@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moerrais <moerrais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/16 13:34:34 by moerrais          #+#    #+#             */
-/*   Updated: 2025/10/24 23:21:56 by moerrais         ###   ########.fr       */
+/*   Created: 2025/10/25 17:03:19 by moerrais          #+#    #+#             */
+/*   Updated: 2025/10/30 09:20:52 by moerrais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	int	i;
+	t_list	*tmp;
 
-	i = 0;
-	while (s[i] != '\0')
+	if (!lst || !new)
+		return ;
+	if (!(*lst))
 	{
-		if (s[i] == c)
-		{
-			return ((char *)&s[i]);
-		}
-		i++;
+		*lst = new;
+		return ;
 	}
-	if (s[i] == c)
-	{
-		return ((char *)&s[i]);
-	}
-	return (NULL);
+	tmp = *lst;
+	while (tmp->next)
+		tmp = tmp->next;
+	tmp->next = new;
 }

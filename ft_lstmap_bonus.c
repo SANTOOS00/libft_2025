@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moerrais <moerrais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/16 13:34:34 by moerrais          #+#    #+#             */
-/*   Updated: 2025/10/24 23:21:56 by moerrais         ###   ########.fr       */
+/*   Created: 2025/10/27 15:55:02 by moerrais          #+#    #+#             */
+/*   Updated: 2025/10/28 01:09:53 by moerrais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	int	i;
+	void	*tmp;
+	t_list	*new_box;
+	t_list	*box_head;
 
-	i = 0;
-	while (s[i] != '\0')
+	if (!lst || !del || !(lst))
+		return (NULL);
+	box_head = NULL;
+	while (lst)
 	{
-		if (s[i] == c)
+		tmp = f(lst->content);
+		new_box = ft_lstnew(tmp);
+		if (!new_box)
 		{
-			return ((char *)&s[i]);
+			ft_lstclear(&box_head, del);
+			return (NULL);
 		}
-		i++;
+		ft_lstadd_back(&box_head, new_box);
+		lst = lst->next;
 	}
-	if (s[i] == c)
-	{
-		return ((char *)&s[i]);
-	}
-	return (NULL);
+	return (box_head);
 }

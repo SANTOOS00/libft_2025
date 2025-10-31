@@ -6,7 +6,7 @@
 /*   By: moerrais <moerrais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 16:43:38 by moerrais          #+#    #+#             */
-/*   Updated: 2025/10/24 19:29:49 by moerrais         ###   ########.fr       */
+/*   Updated: 2025/10/25 00:17:00 by moerrais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,11 +102,7 @@ char	**ft_split(char const *s, char c)
 {
 	size_t	word;
 	char	**str;
-	size_t	i;
-	size_t	len;
 
-	i = 0;
-	len = 0;
 	if (!s)
 	{
 		return (NULL);

@@ -6,7 +6,7 @@
 /*   By: moerrais <moerrais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 17:23:33 by moerrais          #+#    #+#             */
-/*   Updated: 2025/10/24 19:57:56 by moerrais         ###   ########.fr       */
+/*   Updated: 2025/10/28 00:30:36 by moerrais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,14 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	size_t	i;
 	size_t	y;
 
-	dstlen = ft_strlen(dst);
 	srclen = ft_strlen(src);
-	i = dstlen;
 	y = 0;
+	if (!dst && size == 0)
+	{
+		return (srclen);
+	}
+	dstlen = ft_strlen(dst);
+	i = dstlen;
 	if (size <= dstlen)
 	{
 		return (srclen + size);

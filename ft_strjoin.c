@@ -6,48 +6,27 @@
 /*   By: moerrais <moerrais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 19:57:36 by moerrais          #+#    #+#             */
-/*   Updated: 2025/10/24 19:57:37 by moerrais         ###   ########.fr       */
+/*   Updated: 2025/10/28 01:39:23 by moerrais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-
 #include "libft.h"
-
-static void	ft_ok(char *str, char const *s1, char const *s2)
-{
-	size_t	i1;
-	size_t	i2;
-	size_t	i;
-
-	i1 = 0;
-	i2 = 0;
-	i = 0;
-	while (s1[i1] || s2[i2])
-	{
-		if (s1[i1])
-		{
-			str[i++] = s1[i1++];
-		}
-		else
-			str[i++] = s2[i2++];
-	}
-	str[i] = '\0';
-}
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*str;
+	int		s1_len;
+	int		s2_len;
 
 	if (!s1 || !s2)
-	{
 		return (NULL);
-	}
-	str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	s1_len = ft_strlen(s1);
+	s2_len = ft_strlen(s2);
+	str = malloc(sizeof(char) * (s1_len + s2_len + 1));
 	if (!str)
-	{
 		return (NULL);
-	}
-	ft_ok(str, s1, s2);
+	str[0] = '\0';
+	ft_strlcat(str, s1, s1_len + s2_len + 1);
+	ft_strlcat(str, s2, s1_len + s2_len + 1);
 	return (str);
 }

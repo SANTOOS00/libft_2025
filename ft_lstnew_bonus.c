@@ -6,7 +6,7 @@
 /*   By: moerrais <moerrais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 17:02:26 by moerrais          #+#    #+#             */
-/*   Updated: 2025/10/24 23:31:06 by moerrais         ###   ########.fr       */
+/*   Updated: 2025/10/30 09:24:27 by moerrais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_list	*ft_lstnew(void *content)
 	box = (t_list *)malloc(sizeof(t_list));
 	if (!box)
 	{
-		return (box);
+		return (NULL);
 	}
 	box->content = content;
 	box->next = NULL;

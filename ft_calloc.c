@@ -6,7 +6,7 @@
 /*   By: moerrais <moerrais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 10:44:03 by moerrais          #+#    #+#             */
-/*   Updated: 2025/10/24 19:59:59 by moerrais         ###   ########.fr       */
+/*   Updated: 2025/10/28 00:54:58 by moerrais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,14 @@
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*arr;
-	size_t	max_size_t;
+	size_t	max_size;
 
-	if (!nmemb || !size)
-	{
-		arr = malloc(1);
-		if (!arr)
-		{
-			return (NULL);
-		}
-		return (arr);
-	}
-	max_size_t = -1;
-	if (size != 0 && nmemb > max_size_t / size)
-	{
+	max_size = nmemb * size;
+	if (nmemb != 0 && max_size / nmemb != size)
 		return (NULL);
-	}
-	arr = malloc(nmemb * size);
+	arr = (void *)malloc(max_size);
 	if (!arr)
-	{
 		return (NULL);
-	}
-	ft_bzero(arr, (nmemb * size));
+	ft_bzero(arr, max_size);
 	return (arr);
 }

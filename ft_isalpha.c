@@ -6,19 +6,15 @@
 /*   By: moerrais <moerrais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 23:40:02 by moerrais          #+#    #+#             */
-/*   Updated: 2025/10/24 23:40:04 by moerrais         ###   ########.fr       */
+/*   Updated: 2025/10/29 03:00:17 by moerrais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isalpha(int c)
 {
 	if (c >= 'a' && c <= 'z')
-	{
 		return (1);
-	}
 	else if (c >= 'A' && c <= 'Z')
-	{
 		return (1);
-	}
 	return (0);
 }

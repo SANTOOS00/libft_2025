@@ -6,7 +6,7 @@
 /*   By: moerrais <moerrais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 21:41:34 by moerrais          #+#    #+#             */
-/*   Updated: 2025/10/24 19:57:06 by moerrais         ###   ########.fr       */
+/*   Updated: 2025/10/28 01:34:38 by moerrais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	char	c;
-
 	if (fd < 0)
 		return ;
 	if (n == -2147483648)
@@ -26,13 +24,10 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 	if (n < 0)
 	{
-		n = -n;
 		ft_putchar_fd('-', fd);
+		n = -n;
 	}
 	if (n > 9)
-	{
 		ft_putnbr_fd(n / 10, fd);
-	}
-	c = (n % 10) + '0';
-	ft_putchar_fd(c, fd);
+	ft_putchar_fd((n % 10) + '0', fd);
 }

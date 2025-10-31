@@ -6,7 +6,7 @@
 /*   By: moerrais <moerrais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 23:39:51 by moerrais          #+#    #+#             */
-/*   Updated: 2025/10/24 23:39:53 by moerrais         ###   ########.fr       */
+/*   Updated: 2025/10/30 09:47:01 by moerrais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,9 @@
 
 int	ft_isalnum(int c)
 {
-	if (c >= 48 && c <= 57)
-	{
+	if (c >= '0' && c <= '9')
 		return (1);
-	}
 	else if (ft_isalpha(c))
-	{
 		return (1);
-	}
 	return (0);
 }

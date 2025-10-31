@@ -6,13 +6,13 @@
 /*   By: moerrais <moerrais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 18:29:25 by moerrais          #+#    #+#             */
-/*   Updated: 2025/10/25 04:17:07 by moerrais         ###   ########.fr       */
+/*   Updated: 2025/10/30 09:44:16 by moerrais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	int	is_overflow(int sign)
+static int	is_overflow(int sign)
 {
 	if (sign == 1)
 	{
@@ -24,7 +24,7 @@ static	int	is_overflow(int sign)
 	}
 }
 
-static long	ft_my(const char *nptr, int sign)
+static long	ft_convert_number(const char *nptr, int sign)
 {
 	int		i;
 	long	res;
@@ -64,6 +64,6 @@ int	ft_atoi(const char *nptr)
 		}
 		i++;
 	}
-	rest = ft_my(&nptr[i], sing);
+	rest = ft_convert_number(&nptr[i], sing);
 	return ((int)rest);
 }
