@@ -6,7 +6,7 @@
 #    By: moerrais <moerrais@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/20 22:16:30 by moerrais          #+#    #+#              #
-#    Updated: 2025/10/31 15:41:09 by moerrais         ###   ########.fr        #
+#    Updated: 2025/11/01 04:59:32 by moerrais         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,24 +23,23 @@ SRC = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_strlen
 	ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c ft_putchar_fd.c\
 	ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
 
-OBG = $(SRC:.c=.o)
+OBG = $(SRC:%.c=%.o)
 
 SRC_BONUS = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c ft_lstlast_bonus.c\
 	ft_lstadd_back_bonus.c ft_lstdelone_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus.c\
 	ft_lstmap_bonus.c
 
-OBG_BONUS = $(SRC_BONUS:.c=.o)
+OBG_BONUS = $(SRC_BONUS:%.c=%.o)
 
 all: $(NAME)
 
 $(NAME): $(OBG)
-	ar rcs $(NAME)
 
-bonus: $(OBG_BONUS) 
-	ar rcs $(NAME) $(OBG) $(OBG_BONUS) 
-	
+bonus: $(OBG_BONUS)
+
 %.o: %.c libft.h
 	$(CC) $(FLAGS) -c $< -o $@
+	ar rcs $(NAME) $@
 	
 
 clean:
@@ -50,3 +49,5 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+.PHONY: all clean fclean re 
