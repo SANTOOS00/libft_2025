@@ -6,7 +6,7 @@
 /*   By: moerrais <moerrais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 21:41:34 by moerrais          #+#    #+#             */
-/*   Updated: 2025/10/28 01:34:38 by moerrais         ###   ########.fr       */
+/*   Updated: 2025/11/03 14:48:25 by moerrais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	if (fd < 0)
+	if (fd == -1)
 		return ;
 	if (n == -2147483648)
 	{

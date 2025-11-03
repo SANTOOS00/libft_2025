@@ -6,7 +6,7 @@
 /*   By: moerrais <moerrais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 19:54:03 by moerrais          #+#    #+#             */
-/*   Updated: 2025/10/24 19:56:20 by moerrais         ###   ########.fr       */
+/*   Updated: 2025/11/03 14:44:24 by moerrais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	s22 = (unsigned char *)s2;
 	len = 0;
 	if (!s11 && !s22)
-	{
 		return (0);
-	}
 	while (n > len)
 	{
 		if (s11[len] != s22[len])

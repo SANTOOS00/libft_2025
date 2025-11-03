@@ -6,7 +6,7 @@
 /*   By: moerrais <moerrais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 19:57:17 by moerrais          #+#    #+#             */
-/*   Updated: 2025/10/24 19:57:20 by moerrais         ###   ########.fr       */
+/*   Updated: 2025/11/03 14:48:39 by moerrais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_putstr_fd(char *s, int fd)
 {
 	int	i;
 
-	if (!s || fd < 0)
+	if (!s || fd == -1)
 		return ;
 	i = 0;
 	while (s[i])

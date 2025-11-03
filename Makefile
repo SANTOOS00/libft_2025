@@ -6,7 +6,7 @@
 #    By: moerrais <moerrais@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/20 22:16:30 by moerrais          #+#    #+#              #
-#    Updated: 2025/11/01 04:59:32 by moerrais         ###   ########.fr        #
+#    Updated: 2025/11/02 15:06:26 by moerrais         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,11 +35,11 @@ all: $(NAME)
 
 $(NAME): $(OBG)
 
-bonus: $(OBG_BONUS)
-
+bonus: $(OBG_BONUS) 
+	
 %.o: %.c libft.h
 	$(CC) $(FLAGS) -c $< -o $@
-	ar rcs $(NAME) $@
+	ar rcs $(NAME) $@ 
 	
 
 clean:
@@ -49,5 +49,3 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
-
-.PHONY: all clean fclean re 
